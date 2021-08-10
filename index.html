@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@100;400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+	<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js" defer></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+</head>
+<body >
+
+	<!-- window is loading -->
+    <div class="loading-window text-warning">
+        <div class="spinner-border" role="status">
+          </div>
+    </div>
+
+    <script>
+        let loadingWindowItem = document.querySelector('.loading-window');
+
+        window.addEventListener('load' , () => {
+          loadingWindowItem.style.opacity = 0;
+
+          loadingWindowItem.ontransitionend = () => {
+            loadingWindowItem.remove();
+            document.body.classList.remove('overflow-hidden');
+          }
+      });
+    </script>
+
+	
+<!-- header -->
+<header>
+
+	<div class="container-fluid" style="position: fixed;" id="fixed-nav">
+		<div class="container">
+			<nav class="navigation row" id="nav">
+				<div class="logo col-md-6"><h3>MoGo</h3></div>
+				<div class="site-bar col-md-6">
+					<ul id="nav-ul">
+						<li><a href="#about">about</a></li>
+						<li><a href="#service">service</a></li>
+						<li><a href="#work">work</a></li>
+						<li><a href="#blog">blog</a></li>
+						<li><a href="#contact">contact</a></li>
+						<li><a href="#"><img src="images/SHOPPING-CART.png" alt=""></a></li>
+						<li type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><a><img src="images/MAGNIFYING-GLASS.png" alt=""></a></li>	
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<div class="header-content container">
+
+		<div class="hamburger-menu">
+		  <div class="menu-toggle">
+			  <span class="menu-toggle-span1"></span>
+			  <span class="menu-toggle-span2"></span>
+			  <span class="menu-toggle-span3"></span>
+		  </div>
+		  <ul class="menu__box">
+		    <li><a class="menu__item" href="#about">about</a></li>
+		    <li><a class="menu__item" href="#service">service</a></li>
+		    <li><a class="menu__item" href="#work">work</a></li>
+		    <li><a class="menu__item" href="#blog">blog</a></li>
+		    <li><a class="menu__item" href="#contact">contact</a></li>
+		    <li><a href=""><img src="images/SHOPPING-CART.png" alt=""></a></li>
+			<li type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><a><img src="images/MAGNIFYING-GLASS.png" alt=""></a></li>
+		  </ul>
+		</div>
+
+		<script>
+			let menu = document.querySelector('.menu-toggle');
+			let menuBox = document.querySelector('.menu__box');
+			let menuBoxItems = document.querySelectorAll('.menu__box li');
+
+			menuBoxItems.forEach(current => {
+				current.onclick = () => {
+					menuBox.classList.remove('menu-active')
+					document.body.classList.toggle('overflow-hidden');
+					menu.classList.toggle('active');
+				};
+			});
+
+			menu.onclick = (e) => {
+				e.preventDefault();
+				menu.classList.toggle('active');
+				menuBox.classList.toggle('menu-active');
+				document.body.classList.toggle('overflow-hidden');
+			};
+		</script>
+
+		<div class="header-text row">
+			<h2 style="font-family: 'Dancing Script', cursive;">Creative Template</h2>
+			<h1>welcome to mogo</h1>
+		</div>
+
+		<a class="learn-more-button" href="#about">learn more</a>
+
+		<div class="row header-intro">
+			<div class="intro-item col-md-3 col-6">
+				<div class="intro-line"><div class="colored-line"></div></div>
+				<span style="font-weight: bold;">01</span> intro
+			</div>
+			<div class="intro-item col-md-3 col-6">
+				<div class="intro-line"></div>
+				<span style="font-weight: bold;">02</span> work
+			</div>
+			<div class="intro-item col-md-3 col-6">
+				<div class="intro-line"></div>
+				<span style="font-weight: bold;">03</span> about
+			</div>
+			<div class="intro-item col-md-3 col-6">
+				<div class="intro-line"></div>
+				<span style="font-weight: bold;">04</span> contacts
+			</div>
+		</div>
+	</div>
+	
+</header>
+<!-- header -->
+
+<!-- Button trigger modal -->
+
+  
+  <!-- search Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content">
+		<div class="modal-header" style="border:none;">
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body d-flex">
+			<input type="text" class="search-input" style="margin-right:10px;flex-grow:1;outline:none;" autofocus>
+			<button type="button" class="btn btn-warning search-button" data-bs-dismiss="modal">Search</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+<main>
+	<!-- story about us -->
+	<div class="story-about container search-section" id="about">
+		<div class="section-title row">
+			<p style="font-family:'Dancing Script';">What we do</p>
+			<h4 class="title-header">story about us</h4>
+		</div>
+
+		<div class="story-text row">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ad, labore. Amet minus, ut, non necessitatibus iusto veritatis cumque omnis cum quis error odio, ea nulla nobis nihil perferendis eligendi!</p>
+		</div>
+
+		<div class="story-cards row">
+
+			<div class="story-card col-md-4 col-12">
+				<div class="story-card-container">
+					<div class="story-card-img">
+						<img src="images/about-card1.png" alt="" class="story-img">
+
+						<div class="story-card-mask">
+							<div class="story-mask-text">
+								<img src="images/USERS.png" width="35" alt="">
+								<p>not super team</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="story-card col-md-4 col-12">
+				<div class="story-card-container">
+					<div class="story-card-img">
+						<img src="images/about-card2.png" alt="" class="story-img">
+
+						<div class="story-card-mask">
+							<div class="story-mask-text">
+								<img src="images/USERS.png" width="35" alt="">
+								<p>not super team</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="story-card col-md-4 col-12">
+				<div class="story-card-container">
+					<div class="story-card-img">
+						<img src="images/about-card3.png" alt="" class="story-img">
+
+						<div class="story-card-mask">
+							<div class="story-mask-text">
+								<img src="images/USERS.png" width="35" alt="">
+								<p>not super team</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				
+		</div>
+	</div>
+	<!-- story about us -->
+	<div class="container-fluid" style="background: #95e1d3;">
+		<div class="container">
+			<div class="row smooth-numbers">
+				<div class="smooth-numbers-item" >
+					<h2 id="smooth-item-1">0</h2>
+					<p>web design projects</p>
+				</div>
+
+				<div class="smooth-numbers-item">
+					<h2 id="smooth-item-2">76</h2>
+					<p>happy client</p>
+				</div>
+
+				<div class="smooth-numbers-item">
+					<h2 id="smooth-item-3">0</h2>
+					<p>award winner</p>
+				</div>
+
+				<div class="smooth-numbers-item">
+					<h2 id="smooth-item-4">78</h2>
+					<p>cup of coffe</p>
+				</div>
+
+				<div class="smooth-numbers-item">
+					<h2 id="smooth-item-5">2</h2>
+					<p>members</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- amazing services -->
+
+	<div class="container search-section" style="padding-bottom: 80px;" id="service">
+		<div class="section-title row">
+			<p style="font-family:'Dancing Script';">We work with</p>
+			<h4 class="title-header">amazing services</h4>
+		</div>
+
+		<div class="row amazing-services-container lazy-load">
+			<div class="services-item col-md-4 col-12 lazy-load">
+				<div class="img">
+					<img src="images/ALARM.png" alt="">
+				</div>
+				<div class="text">
+					<h5>photography</h5>
+					<p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+				</div>
+			</div>
+
+			<div class="services-item col-md-4 col-12 lazy-load">
+				<div class="img">
+					<img src="images/LINE-GRAPH.png" alt="">
+				</div>
+				<div class="text">
+					<h5>web disign</h5>
+					<p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+				</div>
+			</div>
+
+			<div class="services-item col-md-4 col-12 lazy-load">
+				<div class="img">
+					<img src="images/COMPUTER-_-OK.png" alt="">
+				</div>
+				<div class="text">
+					<h5>creativity</h5>
+					<p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+				</div>
+			</div>
+
+			<hr style="background:#95e1d3;height:2px;margin-top: 30px;" id="services-hrz">
+
+			<div class="services-item col-md-4 col-12 lazy-load">
+				<div class="img">
+					<img src="images/BOOK-2.png" alt="">
+				</div>
+				<div class="text">
+					<h5>seo</h5>
+					<p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+				</div>
+			</div>
+
+			<div class="services-item col-md-4 col-12 lazy-load">
+				<div class="img">
+					<img src="images/HOME.png" alt="">
+				</div>
+				<div class="text">
+					<h5>css/html</h5>
+					<p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+				</div>
+			</div>
+
+			<div class="services-item col-md-4 col-12 lazy-load">
+				<div class="img">
+					<img src="images/IMAGE.png" alt="">
+				</div>
+				<div class="text">
+					<h5>digital</h5>
+					<p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- amazing services -->
+
+	<!-- unique design -->
+
+	<div class="container-fluid unique-design">
+		<div class="row">
+			<div class="section-title row">
+				<p style="font-family:'Dancing Script';">For all devices</p>
+				<h4 class="title-header">unique design</h4>
+			</div>
+		</div>
+	</div>
+
+	<!-- unique design -->
+
+	<!-- what do we do -->
+
+	<div class="container what-do-we-do">
+		<div class="section-title row">
+			<p style="font-family:'Dancing Script';">Service</p>
+			<h4 class="title-header">what do we do</h4>
+		</div>
+
+		<div class="story-text row">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ad, labore. Amet minus, ut, non necessitatibus iusto veritatis cumque omnis cum quis error odio, ea nulla nobis nihil perferendis eligendi!</p>
+		</div>
+
+		<div class="what-we-do-container row">
+			<div class="img col-lg-6 col-md-7 col-12">
+				<img src="images/Layer-43.png" alt="" loading='lazy'>
+			</div>
+
+			<div class="accordion col-lg-6 col-md-5 col-12" id="accordionExample">
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="headingOne">
+			      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			      	<img src="images/PICTURE.png" alt="" style="margin-right: 15px;">
+			        PHOTOGRAPHY
+			      </button>
+			    </h2>
+			    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" >
+			      <div class="accordion-body" data-simplebar>
+			        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</P>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="headingTwo">
+			      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			      	<img src="images/EQUALIZER.png" alt="" style="margin-right: 15px;">
+			        CREATIVITY
+			      </button>
+			    </h2>
+			    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+			      <div class="accordion-body" data-simplebar>
+			        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="accordion-item">
+			    <h2 class="accordion-header" id="headingThree">
+			      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			      	<img src="images/BULLSEYE.png" alt="" style="margin-right: 15px;">
+			        WED DESIGN
+			      </button>
+			    </h2>
+			    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+			      <div class="accordion-body" data-simplebar>
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="what-we-do" style="background: #f8f8f8;">
+		<div class="container">
+			<div class="what-we-do-slider row">
+				<div class="what-we-do-prev prev col-md-1 col-1"><img src="images/prev.png" alt=""></div>
+				<div class="slider-container col-md-10 col-10">
+					<div class="slider-items">
+						<div class="what-we-do-slider-item slider-item">
+							<div class="slider-img"><img src="images/SPEECH-4.png" alt=""></div>
+
+							<div class="text">
+								<p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita possimus cum qui voluptatem autem sapiente voluptate aperiam voluptatum commodi sit, ea reprehenderit tempora aspernatur necessitatibus, obcaecati quos praesentium impedit totam delectus architecto est. Doloribus"</p>
+								<h5>Jon Doe</h5>
+							</div>
+						</div>
+
+						<div class="what-we-do-slider-item slider-item hide">
+							<div class="slider-img"><img src="images/BULLSEYE.png" alt=""></div>
+
+							<div class="text">
+								<p>"Lorem ipsum dolor sit amet  adipisicing elit. Expedita possimus cum qui voluptatem autem sapiente voluptate aperiam voluptatum commodi sit, ea reprehenderit tempora aspernatur necessitatibus, obcaecati quos praesentium impedit totam  architecto est. Doloribus"</p>
+								<h5>not Jon Doe</h5>
+							</div>
+						</div>
+
+						<div class="what-we-do-slider-item slider-item hide">
+							<div class="slider-img"><img src="images/EQUALIZER.png" alt=""></div>
+
+							<div class="text">
+								<p>"Lolor sit amet consectetur adipisicing elit.  possimus cum qui voluptatem autem sapiente voluptate aperiam voluptatum commodi sit, ea reprehenderit tempora aspernatur , obcaecati quos praesentium impedit totam delectus architecto est. Doloribus"</p>
+								<h5>not Jon Doe</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="what-we-do-next next col-md-1 col-1"><img src="images/next.png" alt=""></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- what do we do -->
+
+	<!-- meet our teem -->
+
+	<div class="container meet-team">
+		<div class="section-title row">
+			<p style="font-family:'Dancing Script';">Who we are</p>
+			<h4 class="title-header">meet our team</h4>
+		</div>
+
+		<div class="story-text row">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ad, labore. Amet minus, ut, non necessitatibus iusto veritatis cumque omnis cum quis error odio, ea nulla nobis nihil perferendis eligendi!</p>
+		</div>
+
+		<div class="meet-team-cards row lazy-load">
+
+			<div class="meet-team-card col-md-4 col-12 lazy-load">
+				<div class="meet-team-card-container">
+					<div class="meet-team-card-img">
+						<img src="images/Layer-16.png" alt="" class="meet-team-img">
+
+						<div class="meet-team-card-mask">
+							<div class="meet-team-mask-text">
+								<a href=""><img src="images/facebook.png" alt=""></a>
+								<a href=""><img src="images/twitter.png" alt=""></a>
+								<a href=""><img src="images/pinterest.png" alt=""></a>
+								<a href=""><img src="images/instagram.png" alt=""></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="meet-team-title">
+						<h6>matthew dix</h6>
+						<p>Graphic Design</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="meet-team-card col-md-4 col-12 lazy-load">
+				<div class="meet-team-card-container">
+					<div class="meet-team-card-img">
+						<img src="images/Layer-19.png" alt="" class="meet-team-img">
+
+						<div class="meet-team-card-mask">
+							<div class="meet-team-mask-text">
+								<a href=""><img src="images/facebook.png" alt=""></a>
+								<a href=""><img src="images/twitter.png" alt=""></a>
+								<a href=""><img src="images/pinterest.png" alt=""></a>
+								<a href=""><img src="images/instagram.png" alt=""></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="meet-team-title">
+						<h6>christofer campbell</h6>
+						<p>Branding/UX/design</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="meet-team-card col-md-4 col-12 lazy-load">
+				<div class="meet-team-card-container">
+					<div class="meet-team-card-img">
+						<img src="images/Layer-18.png" alt="" class="meet-team-img">
+
+						<div class="meet-team-card-mask">
+							<div class="meet-team-mask-text">
+								<a href=""><img src="images/facebook.png" alt=""></a>
+								<a href=""><img src="images/twitter.png" alt=""></a>
+								<a href=""><img src="images/pinterest.png" alt=""></a>
+								<a href=""><img src="images/instagram.png" alt=""></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="meet-team-title">
+						<h6>michael fertig</h6>
+						<p>Developer</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="logos">
+		<div class="container" style="height: 100%;">
+			<div class="row logos">
+				<img src="images/Layer-25.png" alt="">
+			</div>
+		</div>
+	</div>
+
+	<!-- meet our teem -->
+
+	<!-- some of our work -->
+
+	<div class="container-fluid our-works-container search-section" style="padding: 0;"  id="work">
+		<div class="container">
+			<div class="section-title row">
+				<p style="font-family:'Dancing Script';">What do we do</p>
+				<h4 class="title-header">some of our work</h4>
+			</div>
+
+			<div class="story-text row" style="margin: 0 auto;">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ad, labore. Amet minus, ut, non necessitatibus iusto veritatis cumque omnis cum quis error odio, ea nulla nobis nihil perferendis eligendi!</p>
+			</div>
+		</div>
+
+		<div class="our-works row">
+			<div class="our-works-card">
+				<div class="our-works-card-container">
+					<div class="our-works-card-img" id="our-work-img1">
+						<div class="our-works-card-mask">
+							<div class="our-works-mask-text">
+								<img src="images/PICTURE1.png" alt="">
+								<p id="upperP">creatively designed</p>
+								<p>Lorem ipsum, dolor</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="our-works-card">
+				<div class="our-works-card-container">
+					<div class="our-works-card-img" id="our-work-img2">
+						<div class="our-works-card-mask">
+							<div class="our-works-mask-text">
+								<img src="images/PICTURE1.png" alt="">
+								<p id="upperP">creatively designed</p>
+								<p>Lorem ipsum, dolor</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="our-works-card" id="bigGrid">
+				<div class="our-works-card-container">
+					<div class="our-works-card-img" id="our-work-img3">
+						<div class="our-works-card-mask">
+							<div class="our-works-mask-text">
+								<img src="images/PICTURE1.png" alt="">
+								<p id="upperP">creatively designed</p>
+								<p>Lorem ipsum, dolor</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="our-works-card">
+				<div class="our-works-card-container">
+					<div class="our-works-card-img" id="our-work-img4">
+						<div class="our-works-card-mask">
+							<div class="our-works-mask-text">
+								<img src="images/PICTURE1.png" alt="">
+								<p id="upperP">creatively designed</p>
+								<p>Lorem ipsum, dolor</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="our-works-card">
+				<div class="our-works-card-container">
+					<div class="our-works-card-img" id="our-work-img5">
+						<div class="our-works-card-mask">
+							<div class="our-works-mask-text">
+								<img src="images/PICTURE1.png" alt="">
+								<p id="upperP">creatively designed</p>
+								<p>Lorem ipsum, dolor</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="our-works-card">
+				<div class="our-works-card-container">
+					<div class="our-works-card-img" id="our-work-img6">
+						<div class="our-works-card-mask">
+							<div class="our-works-mask-text">
+								<img src="images/PICTURE1.png" alt="">
+								<p id="upperP">creatively designed</p>
+								<p>Lorem ipsum, dolor</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="our-works-card">
+				<div class="our-works-card-container">
+					<div class="our-works-card-img" id="our-work-img7">
+						<div class="our-works-card-mask">
+							<div class="our-works-mask-text">
+								<img src="images/PICTURE1.png" alt="">
+								<p id="upperP">creatively designed</p>
+								<p>Lorem ipsum, dolor</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="our-work-pt" style="padding-bottom: 80px;">
+			<div class="what-we-do-slider row">
+				<div class="our-work-prev prev col-md-1 col-1"><img src="images/prev.png" alt=""></div>
+				<div class="slider-container col-md-10 col-10">
+					<div class="slider-items">
+						<div class="our-work-slider-items slider-item">
+							<div class="slider-img"><img src="images/Layer-36.png" alt=""></div>
+
+							<div class="text">
+								<p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita possimus cum qui voluptatem autem sapiente voluptate aperiam voluptatum commodi sit, ea reprehenderit tempora aspernatur necessitatibus, obcaecati quos praesentium impedit totam delectus architecto est. Doloribus"</p>
+								<h5>Joshua Earle</h5>
+							</div>
+						</div>
+
+						<div class="our-work-slider-items slider-item hide">
+							<div class="slider-img"><img src="images/Layer-36.png" alt=""></div>
+
+							<div class="text">
+								<p>"Lorem ipsum dolor sit amet  adipisicing elit. Expedita possimus cum qui voluptatem autem sapiente voluptate aperiam voluptatum commodi sit, ea reprehenderit tempora aspernatur necessitatibus, obcaecati quos praesentium. Doloribus"</p>
+								<h5>not Joshua Earle</h5>
+							</div>
+						</div>
+
+						<div class="our-work-slider-items slider-item hide">
+							<div class="slider-img"><img src="images/Layer-36.png" alt=""></div>
+
+							<div class="text">
+								<p>"Lolor sit amet consectetur cum qui voluptatem autem sapiente voluptate aperiam voluptatum commodi sit, ea reprehenderit tempora aspernatur , obcaecati quos praesentium impedit totam delectus architecto est. Doloribus"</p>
+								<h5>not Joshua Earle</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="our-work-next next col-md-1 col-1"><img src="images/next.png" alt=""></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- some of our work -->
+
+	<!-- what people say -->
+
+	<div class="container-fluid what-people-say">
+
+		<div class="section-title row">
+			<p style="font-family:'Dancing Script';">Happy Clients</p>
+			<h4 class="title-header">what people say</h4>
+		</div>
+
+		<div class="container what-people-say-main">
+
+			<div class="row what-people-say-items lazy-load">
+				<div class="what-people-say-item col-md-6 col-12 lazy-load">
+					<div class="img">
+						<img src="images/Layer-471.png" alt="">
+					</div>
+					<div class="text">
+						<div class="title">
+							<p style="text-transform: uppercase;font-weight: bold;margin: 0;font-size: 19px;letter-spacing: 1px;">matthew dix</p>
+							<p style="color:#b6b6b6; font-style: italic;">Graphic Design</p>
+						</div>
+						<div class="paragrath">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quis, assumenda illum adipisci voluptas dignissimos error est fuga optio aut quaerat dicta sapiente earum praesentium</div>
+					</div>
+				</div>
+
+				<div class="what-people-say-item col-md-6 col-12 lazy-load">
+					<div class="img">
+						<img src="images/Layer-49.png" alt="">
+					</div>
+					<div class="text">
+						<div class="title">
+							<p style="text-transform: uppercase;font-weight: bold;margin: 0;font-size: 19px;letter-spacing: 1px;">nick karvounis</p>
+							<p style="color:#b6b6b6; font-style: italic;">Graphic Design</p>
+						</div>
+						<div class="paragrath">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quis, assumenda illum adipisci voluptas dignissimos error est fuga optio aut quaerat dicta sapiente earum praesentium</div>
+					</div>
+				</div>
+
+				<div class="what-people-say-item col-md-6 col-12 lazy-load">
+					<div class="img">
+						<img src="images/Layer-50.png" alt="">
+					</div>
+					<div class="text">
+						<div class="title">
+							<p style="text-transform: uppercase;font-weight: bold;margin: 0;font-size: 19px;letter-spacing: 1px;">jaelnn castillo</p>
+							<p style="color:#b6b6b6; font-style: italic;">Graphic Design</p>
+						</div>
+						<div class="paragrath">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quis, assumenda illum adipisci voluptas dignissimos error est fuga optio aut quaerat dicta sapiente earum praesentium</div>
+					</div>
+				</div>
+
+				<div class="what-people-say-item col-md-6 col-12 lazy-load">
+					<div class="img">
+						<img src="images/Layer-51.png" alt="">
+					</div>
+					<div class="text">
+						<div class="title">
+							<p style="text-transform: uppercase;font-weight: bold;margin: 0;font-size: 19px;letter-spacing: 1px;">mike peterucci</p>
+							<p style="color:#b6b6b6; font-style: italic;">Graphic Design</p>
+						</div>
+						<div class="paragrath">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quis, assumenda illum adipisci voluptas dignissimos error est fuga optio aut quaerat dicta sapiente earum praesentium</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- what people say -->
+
+	<!-- latest blog -->
+
+	<div class="container latest-blog search-section" id="blog">
+		<div class="section-title row">
+			<p style="font-family:'Dancing Script';">Our stories</p>
+			<h4 class="title-header">latest blog</h4>
+		</div>
+
+		<div class="row lates-blog-cards">
+			<div class="latest-blog-card col-md-4 col-12">
+				<div class="img">
+					<img src="images/Layer-54.png" alt="" loading='lazy'>
+
+					<div class="date">
+						<h3>15</h3>
+						<p>Jan</p>
+					</div>
+				</div>
+				<div class="text">
+					<p id="latest-blog-bold-p">Lorem ipsum dolor sit amet</p>
+					<p id="latest-blog-common-p">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Aliquam sint eveniet pariatur at recusandae</p>
+				</div>
+				<div class="details">
+					<div class="views">
+						<img src="images/VIEW.png" alt="">
+						<p>542</p>
+					</div>
+					<div class="comments">
+						<img src="images/SPEECH-BUBBLE-2.png" alt="">
+						<p>17</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="latest-blog-card col-md-4 col-12">
+				<div class="img">
+					<img src="images/Layer-55.png" alt="" loading='lazy'>
+
+					<div class="date">
+						<h3>14</h3>
+						<p>Jan</p>
+					</div>
+				</div>
+				<div class="text">
+					<p id="latest-blog-bold-p">sed do eiusmod tempor</p>
+					<p id="latest-blog-common-p">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Aliquam sint eveniet pariatur at </p>
+				</div>
+				<div class="details">
+					<div class="views">
+						<img src="images/VIEW.png" alt="">
+						<p>992</p>
+					</div>
+					<div class="comments">
+						<img src="images/SPEECH-BUBBLE-2.png" alt="">
+						<p>42</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="latest-blog-card col-md-4 col-12">
+				<div class="img">
+					<img src="images/Layer-57.png" alt="" loading='lazy'>
+
+					<div class="date">
+						<h3>12</h3>
+						<p>Jan</p>
+					</div>
+				</div>
+				<div class="text">
+					<p id="latest-blog-bold-p">incidunt ut labore et dolore</p>
+					<p id="latest-blog-common-p">Lorem dolor  amet consectetur adipisicing, elit. Aliquam sint eveniet pariatur at recusandae.</p>
+				</div>
+				<div class="details">
+					<div class="views">
+						<img src="images/VIEW.png" alt="">
+						<p>1560</p>
+					</div>
+					<div class="comments">
+						<img src="images/SPEECH-BUBBLE-2.png" alt="">
+						<p>98</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid map">
+		<div class="map-text">
+			<img src="images/PIN-2.png" alt="">
+			<h2>open map</h2>
+		</div>
+	</div>
+
+	<!-- latest blog -->
+
+</main>
+
+<footer style="background: #f8f8f8;" class="search-section" id="contact">
+	<div class="container footer-container" style="padding-top: 70px;">
+		<div class="row footer-main">
+			<div class="footer-mogo col-xl-5 col-md-12 col-12">
+				<h2 style="color:#b6b6b6; font-size: 40px;font-weight: bold;letter-spacing: 1px;padding-bottom: 25px">MoGo</h2>
+
+				<p style="color:#b6b6b6; font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum quos modi nemo! Voluptatum, magnam ea nulla quaerat mollitia veniam, voluptatibus ab, unde amet at tenetur commodi minus consectetur saepe autem asperiores dignissimos nihil nemo in.</p>
+
+				<div class="footer-mogo-followers d-flex align-items-baseline" style="padding-top: 20px;padding-bottom: 7px; border-bottom: 1px solid lightgrey;">
+					<h5 style="font-weight: bold;">15k&nbsp</h5>followers
+				</div>
+
+				<div class="footer-follow-us" style="padding-top: 14px;">
+					<p style="font-weight: 100; font-style:italic;">Follow Us:</p>
+
+					<div class="follow-links">
+						<a href=""><img src="images/facebook1.png" alt="" loading='lazy'></a>
+						<a href=""><img src="images/twitter1.png" alt="" loading='lazy'></a>
+						<a href=""><img src="images/instagram1.png" alt="" loading='lazy'></a>
+						<a href=""><img src="images/pinterest1.png" alt="" loading='lazy'></a>
+						<a href=""><img src="images/google-plus.png" alt="" loading='lazy'></a>
+						<a href=""><img src="images/youtube.png" alt="" loading='lazy'></a>
+						<a href=""><img src="images/dribbble.png" alt="" loading='lazy'></a>
+						<a href=""><img src="images/tumblr.png" alt="" loading='lazy'></a>
+					</div>
+				</div>
+
+				<div class="footer-mail">
+					<span class="footer-mail-error">Not E-mail</span>
+					<input type="text" class="footer-mail-input" placeholder="Your Email..." style="font-style: italic;border:none;">
+					<div class="button-subscribe">subscribe</div>
+				</div>
+			</div>
+
+			<!-- subscribe -->
+			<script>
+				let subscribeButton = document.querySelector('.button-subscribe');
+				let subscribeInput = document.querySelector('.footer-mail-input');
+				let error = document.querySelector('.footer-mail-error');
+
+				subscribeButton.onclick = () => {
+					if (!subscribeInput.value.includes('@')) {
+						error.style.opacity = 1;
+					} else {
+						error.style.opacity = 0;
+					}
+				}
+			</script>
+
+			<div class="footer-blogs col-xl-4 col-md-6 col-12">
+				<div class="title" style="text-transform: uppercase;font-weight: bold;padding-bottom: 40px;">
+					blogs
+				</div>
+
+				<div class="blogs-main">
+					<a href="#" class="blog-item">
+						<img src="images/photos-7884rHDsW8yqbsyN.png" alt="">
+						<div class="text">
+							<p style="text-transform: uppercase;font-size: 14px;font-weight: bold;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+							<p style="color:#b6b6b6;font-style: italic;font-size: 14px;">Jan 9, 2016</p>
+						</div>
+					</a>
+
+					<a href="#" class="blog-item">
+						<img src="images/photos-7884lejLFH9MN8IC.png" alt="">
+						<div class="text">
+							<p style="text-transform: uppercase;font-size: 14px;font-weight: bold;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+							<p style="color:#b6b6b6;font-style: italic;font-size: 14px;">Jan 9, 2016</p>
+						</div>
+					</a>
+
+					<a href="#" class="blog-item">
+						<img src="images/photos-7884P2smgicsZFyn.png" alt="">
+						<div class="text">
+							<p style="text-transform: uppercase;font-size: 14px;font-weight: bold;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+							<p style="color:#b6b6b6;font-style: italic;font-size: 14px;">Jan 9, 2016</p>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="footer-inst col-xl-3 col-md-6 col-12">
+				<div class="title" style="text-transform: uppercase;font-weight: bold;padding-bottom: 40px;">
+					instagram
+				</div>
+
+				<div class="inst-photos">
+					<img src="images/photos-7884MJE3ABUJPTO1.png" alt="" loading='lazy'>
+					<img src="images/photos-7884MBqau4DkSE9K.png" alt="" loading='lazy'>
+					<img src="images/photos-7884M86ovdhbiWKi.png" alt="" loading='lazy'>
+					<img src="images/photos-7884rRdzNWx35XGc.png" alt="" loading='lazy'>
+					<img src="images/photos-7884W4HBOgfC6WDb.png" alt="" loading='lazy'>
+					<img src="images/photos-7884qnJlwaL4TA8x.png" alt="" loading='lazy'>
+					<img src="images/photos-78841zcS1oLCjBr4.png" alt="" loading='lazy'>
+					<img src="images/photos-78842fGoMmtuD5Z9.png" alt="" loading='lazy'>
+					<img src="images/photos-7884nwL7ruku3rhJ.png" alt="" loading='lazy'>
+				</div>
+
+				<a href="#"><p style="font-style: italic;">View more photos</p></a>
+			</div>
+		</div>
+
+		<div class="footer-copyright" style="border-top: 1px solid #b6b6b6;font-weight: bold;letter-spacing: 1px;">
+			© MoGo free PSD template by <span style="color:#f38181;">Laaqiq</span>
+		</div>
+
+	</div>
+</footer>
+
+
+<!-- search -->
+<script>
+	let searchInput = document.querySelector('.search-input');
+	let searchSections = document.querySelectorAll('.search-section');
+	let searchButton = document.querySelector('.search-button');
+
+	searchButton.onclick = () => {
+		let searchInputValue = searchInput.value.toLowerCase();
+
+		for (let item of searchSections) {
+			if (searchInputValue == item.id) {
+				item.scrollIntoView({behavior: 'smooth'})
+			}
+		}
+
+		searchInput.value = '';
+	}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/smoothNumbers.js"></script>
+<script src="js/slider.js"></script>
+<script type="text/javascript" src="js/lazyLoad.js"></script>
+<script src="js/movingHeader.js"></script>
+<script src="js/anchors.js"></script>
+</body>
+</html> 
